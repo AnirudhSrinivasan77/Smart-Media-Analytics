@@ -39,14 +39,14 @@ To ensure the Frontend can communicate with the Backend, the following was confi
 ### 2. S3 Bucket Security (CORS)
 To allow the browser to perform `PUT` requests directly to S3 (for the upload process), a Cross-Origin Resource Sharing (CORS) policy was applied:
 ```json
-[
+  [
     {
         "AllowedHeaders": ["*"],
         "AllowedMethods": ["GET", "PUT", "POST", "HEAD"],
         "AllowedOrigins": ["*"],
         "ExposeHeaders": ["ETag"]
     }
-]
+   ]
 
 
 ## ⚡ Features

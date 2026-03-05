@@ -29,6 +29,25 @@ This project follows the **Principle of Least Privilege**. The Lambda functions 
 * **Amazon DynamoDB:** `dynamodb:PutItem`, `dynamodb:Scan` (To store/retrieve metadata)
 * **CloudWatch Logs:** `logs:CreateLogGroup` (For debugging and monitoring)
 
+## ⚙️ Infrastructure & Configuration
+
+### 1. API Gateway (REST API)
+To ensure the Frontend can communicate with the Backend, the following was configured:
+* **CORS Enabled:** `Access-Control-Allow-Origin`, `Access-Control-Allow-Methods` (POST, GET, OPTIONS), and `Access-Control-Allow-Headers` were explicitly allowed for both `/images` and `/upload` resources.
+* **Deployment:** API was deployed to a `prod` stage to generate the public Invoke URL.
+
+### 2. S3 Bucket Security (CORS)
+To allow the browser to perform `PUT` requests directly to S3 (for the upload process), a Cross-Origin Resource Sharing (CORS) policy was applied:
+```json
+[
+    {
+        "AllowedHeaders": ["*"],
+        "AllowedMethods": ["GET", "PUT", "POST", "HEAD"],
+        "AllowedOrigins": ["*"],
+        "ExposeHeaders": ["ETag"]
+    }
+]
+
 
 ## ⚡ Features
 * **Direct-to-S3 Uploads:** Uses Presigned URLs to bypass server bottlenecks and enhance security.

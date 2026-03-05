@@ -7,7 +7,7 @@ function App() {
   const [uploading, setUploading] = useState(false);
 
   // 🚩 BASE URL (Your API Gateway Invoke URL)
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+ const BASE_URL = "https://5cfxkwncdb.execute-api.us-east-1.amazonaws.com/prod";
 
   // 🔗 API ENDPOINTS
   const IMAGES_API = `${BASE_URL}/images`; // For fetching the gallery

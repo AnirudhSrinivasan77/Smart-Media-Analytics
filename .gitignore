@@ -1,0 +1,14 @@
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Dependencies
+node_modules/
+dist/
+build/
+
+# OS Files
+.DS_Store
+Thumbs.db

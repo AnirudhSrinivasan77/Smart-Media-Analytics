@@ -21,6 +21,13 @@ VisionAnalytics is a high-performance, event-driven web application that uses **
 5.  **Metadata Storage:** The results are saved into a DynamoDB table.
 6.  **Real-Time Gallery:** The React frontend fetches the analyzed data from the DynamoDB via a second API endpoint.
 
+## 🔐 Security & IAM Policy
+This project follows the **Principle of Least Privilege**. The Lambda functions are granted only the necessary permissions to interact with AWS services:
+
+* **Amazon S3:** `s3:GetObject`, `s3:PutObject` (To read/write images)
+* **Amazon Rekognition:** `rekognition:DetectLabels` (To analyze image content)
+* **Amazon DynamoDB:** `dynamodb:PutItem`, `dynamodb:Scan` (To store/retrieve metadata)
+* **CloudWatch Logs:** `logs:CreateLogGroup` (For debugging and monitoring)
 
 
 ## ⚡ Features
